@@ -37,13 +37,14 @@ const animateMetric = (element) => {
   const target = Number(element.dataset.target || 0);
   const suffix = element.dataset.suffix || '';
   const decimals = suffix === 'kWh' || suffix === 'kg' || suffix === 'km' ? 2 : 0;
+  const valueEl = element.querySelector('.impact-value') || element;
 
   if (reducedMotionQuery.matches) {
     const formatted = suffix === 'km'
       ? formatNumber(target, 2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
       : formatNumber(target, decimals);
 
-    element.textContent = `${formatted}${suffix}`;
+    valueEl.textContent = formatted;
     return;
   }
 
@@ -65,7 +66,7 @@ const animateMetric = (element) => {
       formatted = formatNumber(current, 0);
     }
 
-    element.textContent = `${formatted}${suffix}`;
+    valueEl.textContent = formatted;
 
     if (progress < 1) {
       requestAnimationFrame(update);
