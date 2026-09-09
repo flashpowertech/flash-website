@@ -7,8 +7,9 @@ const setActiveNavigation = () => {
     const href = link.getAttribute('href') || '';
     const isHome = (currentPage === '' || currentPage === 'index.html') && (href === 'index.html' || href === '#top');
     const isAbout = currentPage === 'about.html' && href === 'about.html';
+    const isContact = currentPage === 'contact.html' && href === 'contact.html';
 
-    const isActive = isHome || isAbout;
+    const isActive = isHome || isAbout || isContact;
 
     link.classList.toggle('active', isActive);
     if (isActive) {
@@ -89,6 +90,56 @@ const metricObserver = new IntersectionObserver(
 );
 
 setActiveNavigation();
+
+const flashWhatsappUrl = 'https://wa.me/916262663664';
+
+const buildWhatsAppMessage = (data) => {
+  const extraInfo = data.message?.trim() ? data.message.trim() : 'Not provided';
+  const homes = data.homes?.trim() ? data.homes.trim() : 'Not provided';
+
+  return [
+    'Hello Flash, I would like to explore EV charging infrastructure for my community.',
+    '',
+    `Name: ${data.name.trim()}`,
+    `Community: ${data.community.trim()}`,
+    `City: ${data.city.trim()}`,
+    `Phone: ${data.phone.trim()}`,
+    `Number of Homes: ${homes}`,
+    `Additional Information: ${extraInfo}`,
+  ].join('\n');
+};
+
+const contactForm = document.getElementById('flash-contact-form');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+    const values = {
+      name: (formData.get('name') || '').toString().trim(),
+      community: (formData.get('community') || '').toString().trim(),
+      city: (formData.get('city') || '').toString().trim(),
+      phone: (formData.get('phone') || '').toString().trim(),
+      homes: (formData.get('homes') || '').toString().trim(),
+      message: (formData.get('message') || '').toString().trim(),
+    };
+
+    const requiredFields = ['name', 'community', 'city', 'phone'];
+    const missingFields = requiredFields.filter((field) => !values[field]);
+
+    if (missingFields.length > 0) {
+      const firstMissing = document.getElementById(missingFields[0]);
+      firstMissing?.focus();
+      firstMissing?.reportValidity();
+      return;
+    }
+
+    const whatsappMessage = encodeURIComponent(buildWhatsAppMessage(values));
+    const whatsappUrl = `${flashWhatsappUrl}?text=${whatsappMessage}`;
+    window.open(whatsappUrl, '_blank', 'noopener');
+  });
+}
 
 document.querySelectorAll('.impact-metric').forEach((metric) => {
   if (reducedMotionQuery.matches) {
