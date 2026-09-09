@@ -89,12 +89,34 @@ img {
 }
 
 .hero {
+  position: relative;
   padding: clamp(4rem, 7vw, 6rem) 0 4.5rem;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 68% 36%, rgba(79, 212, 199, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(7, 23, 27, 0.88), rgba(7, 23, 27, 1));
+  pointer-events: none;
 }
 
 .hero-inner {
-  max-width: 760px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  max-width: 1200px;
   padding-top: 0.5rem;
+}
+
+.hero-copy {
+  max-width: 760px;
 }
 
 .eyebrow {
@@ -156,6 +178,203 @@ h1 {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text);
+}
+
+.hero-visual {
+  position: relative;
+  width: min(100%, 520px);
+  height: clamp(290px, 31vw, 460px);
+  justify-self: end;
+  overflow: hidden;
+}
+
+.hero-scene {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+  -webkit-mask-image: radial-gradient(ellipse at 56% 58%, black 58%, transparent 94%);
+  mask-image: radial-gradient(ellipse at 56% 58%, black 58%, transparent 94%);
+}
+
+.scene-glow {
+  fill: rgba(79, 212, 199, 0.06);
+  filter: blur(18px);
+}
+
+.building-body {
+  fill: rgba(17, 40, 46, 0.96);
+  stroke: rgba(130, 236, 224, 0.16);
+  stroke-width: 1.2;
+}
+
+.building-cap {
+  fill: rgba(9, 24, 28, 0.95);
+}
+
+.building-divider {
+  fill: rgba(255, 255, 255, 0.08);
+}
+
+.window-grid {
+  fill: url(#windowGrid);
+  pointer-events: none;
+}
+
+.window-lit {
+  fill: rgba(255, 214, 150, 0.82);
+  rx: 1;
+}
+
+.window-flicker {
+  animation: windowFlicker 13s ease-in-out infinite;
+}
+
+.ground-plane {
+  fill: url(#groundGrad);
+}
+
+.ground-line {
+  fill: rgba(130, 236, 224, 0.08);
+}
+
+.parking-divider {
+  fill: rgba(255, 255, 255, 0.05);
+}
+
+.wheel {
+  fill: rgba(7, 18, 21, 0.96);
+  stroke: rgba(130, 236, 224, 0.3);
+  stroke-width: 1.3;
+}
+
+.car-body {
+  fill: rgba(22, 48, 54, 0.97);
+  stroke: rgba(130, 236, 224, 0.24);
+  stroke-width: 1.2;
+}
+
+.car-cabin {
+  fill: rgba(28, 58, 64, 0.95);
+}
+
+.scooter-frame {
+  fill: none;
+  stroke: rgba(180, 198, 200, 0.72);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.scooter-seat {
+  fill: rgba(22, 48, 54, 0.97);
+}
+
+.tail-light {
+  fill: rgba(214, 74, 74, 0.75);
+  filter: drop-shadow(0 0 3px rgba(214, 74, 74, 0.4));
+  animation: tailGlow 6s ease-in-out infinite;
+}
+
+.charger-pillar {
+  fill: rgba(15, 34, 39, 0.97);
+  stroke: rgba(130, 236, 224, 0.32);
+  stroke-width: 1.2;
+}
+
+.charger-cap {
+  fill: rgba(130, 236, 224, 0.92);
+  filter: drop-shadow(0 0 5px rgba(79, 212, 199, 0.55));
+  animation: chargerGlow 4.5s ease-in-out infinite;
+}
+
+.charge-cable {
+  fill: none;
+  stroke: rgba(130, 236, 224, 0.3);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.charge-pulse {
+  fill: none;
+  stroke: url(#cableGlow);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 34;
+  filter: drop-shadow(0 0 4px rgba(79, 212, 199, 0.42));
+  animation: cablePulse 4.5s linear infinite;
+}
+
+@keyframes windowFlicker {
+  0%, 100% {
+    opacity: 0.85;
+  }
+  45% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 0.2;
+  }
+  60% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes tailGlow {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes chargerGlow {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes cablePulse {
+  0% {
+    stroke-dashoffset: 0;
+    opacity: 0.25;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    stroke-dashoffset: -84;
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .window-flicker,
+  .tail-light,
+  .charger-cap,
+  .charge-pulse {
+    animation: none;
+  }
+
+  .window-flicker {
+    opacity: 0.85;
+  }
+
+  .tail-light {
+    opacity: 0.7;
+  }
+
+  .charger-cap {
+    opacity: 0.9;
+  }
+
+  .charge-pulse {
+    opacity: 0.55;
+  }
 }
 
 .section {
@@ -1252,6 +1471,10 @@ h2 {
     padding: 1rem 0;
   }
 
+  .hero {
+    overflow-x: hidden;
+  }
+
   .brand {
     height: 58px;
   }
@@ -1270,7 +1493,21 @@ h2 {
   }
 
   .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
     padding-top: 0.25rem;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    width: min(100%, 360px);
+    height: clamp(200px, 48vw, 260px);
+    justify-self: center;
+    margin: 0 auto;
+    opacity: 0.96;
   }
 
   .eyebrow {
