@@ -58,16 +58,22 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 188px;
   height: 72px;
+  overflow: hidden;
   line-height: 0;
 }
 
 .brand img {
   display: block;
-  height: 70px;
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 258px;
+  max-width: none;
+  height: auto;
+  transform: translate(-50%, -50%);
 }
 
 .site-nav {
@@ -1474,12 +1480,12 @@ h2 {
   }
 
   .brand {
+    width: 145px;
     height: 58px;
   }
 
   .brand img {
-    height: 54px;
-    max-width: 180px;
+    width: 199px;
   }
 
   .site-nav {
@@ -1913,12 +1919,12 @@ h2 {
   }
 
   .brand {
+    width: 129px;
     height: 52px;
   }
 
   .brand img {
-    height: 48px;
-    max-width: 160px;
+    width: 177px;
   }
 
   .site-nav {
