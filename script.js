@@ -1,5 +1,111 @@
 const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+const THEME_STORAGE_KEY = 'flash-theme';
+
+const applyTheme = (theme) => {
+  document.documentElement.setAttribute('data-theme', theme);
+
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    const isLight = theme === 'light';
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+    themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+  }
+};
+
+const initThemeToggle = () => {
+  const themeToggle = document.getElementById('theme-toggle');
+
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+
+  if (!themeToggle) return;
+
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+    applyTheme(next);
+  });
+
+  themeToggle.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+      event.preventDefault();
+      themeToggle.click();
+    }
+  });
+};
+
+const initMenu = () => {
+  const menuToggle = document.getElementById('menu-toggle');
+  const siteMenu = document.getElementById('site-menu');
+
+  if (!menuToggle || !siteMenu) return;
+
+  let closeTimeout = null;
+
+  const closeMenu = () => {
+    if (!siteMenu.classList.contains('is-open')) return;
+
+    siteMenu.classList.remove('is-open');
+    menuToggle.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+
+    clearTimeout(closeTimeout);
+    closeTimeout = setTimeout(() => {
+      siteMenu.setAttribute('hidden', '');
+    }, 200);
+  };
+
+  const openMenu = () => {
+    clearTimeout(closeTimeout);
+    siteMenu.removeAttribute('hidden');
+
+    // Force a layout flush so the opening transition animates from its closed state
+    // instead of the removed "hidden" and added "is-open" class applying in the same tick.
+    void siteMenu.offsetHeight;
+
+    siteMenu.classList.add('is-open');
+    menuToggle.classList.add('is-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+  };
+
+  menuToggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+
+    if (siteMenu.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuToggle.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
+      event.preventDefault();
+      menuToggle.click();
+    }
+  });
+
+  siteMenu.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => closeMenu());
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!siteMenu.classList.contains('is-open')) return;
+    if (siteMenu.contains(event.target) || menuToggle.contains(event.target)) return;
+
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && siteMenu.classList.contains('is-open')) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+};
+
 const setActiveNavigation = () => {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
@@ -90,6 +196,8 @@ const metricObserver = new IntersectionObserver(
   }
 );
 
+initThemeToggle();
+initMenu();
 setActiveNavigation();
 
 const flashWhatsappUrl = 'https://wa.me/916262663664';
