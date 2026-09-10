@@ -1777,6 +1777,30 @@ h2 {
   stroke-width: 0;
 }
 
+.whatsapp-panel .contact-panel-icon {
+  border-color: rgba(37, 211, 102, 0.25);
+  background: rgba(37, 211, 102, 0.1);
+  color: #25d366;
+}
+
+.whatsapp-panel:hover,
+.whatsapp-panel:focus-within {
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 0 0 1px rgba(37, 211, 102, 0.12), inset 0 1px 0 rgba(var(--line-rgb), 0.02);
+}
+
+.phone-panel .contact-panel-icon {
+  border-color: rgba(59, 130, 246, 0.25);
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.phone-panel:hover,
+.phone-panel:focus-within {
+  border-color: rgba(59, 130, 246, 0.35);
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.12), inset 0 1px 0 rgba(var(--line-rgb), 0.02);
+}
+
 .contact-panel-copy {
   display: grid;
   gap: 0.45rem;
@@ -1809,6 +1833,28 @@ h2 {
 .contact-panel .button.secondary:focus-visible {
   background: rgba(79, 212, 199, 0.08);
   border-color: rgba(79, 212, 199, 0.5);
+}
+
+.whatsapp-panel .button.secondary {
+  background: rgba(37, 211, 102, 0.07);
+  border-color: rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-panel .button.secondary:hover,
+.whatsapp-panel .button.secondary:focus-visible {
+  background: rgba(37, 211, 102, 0.18);
+  border-color: rgba(37, 211, 102, 0.6);
+}
+
+.phone-panel .button.secondary {
+  background: rgba(59, 130, 246, 0.07);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.phone-panel .button.secondary:hover,
+.phone-panel .button.secondary:focus-visible {
+  background: rgba(59, 130, 246, 0.18);
+  border-color: rgba(59, 130, 246, 0.6);
 }
 
 .contact-form-section {
