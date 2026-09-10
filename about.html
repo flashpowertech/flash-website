@@ -5,7 +5,20 @@
     <script>
       (function () {
         var stored = localStorage.getItem('flash-theme');
-        var theme = stored === 'light' ? 'light' : 'dark';
+        var theme = 'dark';
+        if (stored === 'light' || stored === 'dark') {
+          theme = stored;
+        } else {
+          try {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              theme = 'dark';
+            } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+              theme = 'light';
+            }
+          } catch (e) {
+            theme = 'dark';
+          }
+        }
         document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
