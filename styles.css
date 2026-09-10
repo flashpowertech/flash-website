@@ -328,6 +328,119 @@ html[data-theme="light"] .theme-toggle-thumb .icon-moon {
   }
 }
 
+.lang-wrapper {
+  position: relative;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  appearance: none;
+}
+
+.lang-toggle:hover {
+  border-color: rgba(79, 212, 199, 0.4);
+}
+
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lang-toggle-code {
+  min-width: 1.2rem;
+  text-align: center;
+}
+
+.lang-caret {
+  width: 0.85rem;
+  height: 0.85rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.2s ease;
+}
+
+.lang-toggle.is-open .lang-caret {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-caret {
+    transition: none;
+  }
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.65rem);
+  left: 0;
+  z-index: 40;
+  display: grid;
+  gap: 0.15rem;
+  min-width: 160px;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  box-shadow: 0 12px 32px rgba(var(--bg-rgb), 0.35);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.lang-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.lang-option {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.lang-option:hover,
+.lang-option:focus-visible {
+  color: var(--text);
+  background: rgba(79, 212, 199, 0.08);
+}
+
+.lang-option.is-selected {
+  color: var(--text);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-menu {
+    transition: none;
+  }
+}
+
 .site-nav {
   position: absolute;
   top: calc(100% + 0.65rem);
@@ -1877,6 +1990,15 @@ h2 {
     gap: 0.45rem;
   }
 
+  .lang-toggle {
+    padding: 0.5rem 0.55rem;
+  }
+
+  .lang-menu {
+    left: auto;
+    right: 0;
+  }
+
   .menu-toggle-label {
     display: none;
   }
@@ -2391,6 +2513,11 @@ h2 {
 
   .brand img {
     width: 177px;
+  }
+
+  .lang-toggle {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.78rem;
   }
 
   .site-nav a {

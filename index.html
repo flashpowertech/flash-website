@@ -20,6 +20,25 @@
           }
         }
         document.documentElement.setAttribute('data-theme', theme);
+
+        var storedLang = localStorage.getItem('flash-language');
+        var lang = 'en';
+        if (storedLang === 'en' || storedLang === 'hi' || storedLang === 'gu') {
+          lang = storedLang;
+        } else {
+          try {
+            var browserLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+            for (var i = 0; i < browserLangs.length; i++) {
+              var code = (browserLangs[i] || '').toLowerCase();
+              if (code.indexOf('hi') === 0) { lang = 'hi'; break; }
+              if (code.indexOf('gu') === 0) { lang = 'gu'; break; }
+            }
+          } catch (e) {
+            lang = 'en';
+          }
+        }
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,10 +52,30 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="Flash home">
+        <a class="brand" href="index.html" aria-label="Flash home" data-i18n-aria-label="nav.brandAriaLabel">
           <img src="images/flash_logo.png" alt="Flash Powertech" />
         </a>
         <div class="header-controls">
+          <div class="lang-wrapper">
+            <button
+              type="button"
+              id="lang-toggle"
+              class="lang-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="lang-menu"
+              aria-label="Change language"
+              data-i18n-aria-label="language.openLabel"
+            >
+              <span class="lang-toggle-code" id="lang-toggle-code">EN</span>
+              <svg class="lang-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="menu" aria-label="Language" hidden>
+              <button type="button" class="lang-option" data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+              <button type="button" class="lang-option" data-lang="hi" role="menuitemradio" aria-checked="false">हिन्दी</button>
+              <button type="button" class="lang-option" data-lang="gu" role="menuitemradio" aria-checked="false">ગુજરાતી</button>
+            </div>
+          </div>
           <button
             type="button"
             id="theme-toggle"
@@ -67,14 +106,15 @@
               aria-expanded="false"
               aria-controls="site-menu"
               aria-label="Open menu"
+              data-i18n-aria-label="menu.openLabel"
             >
               <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-              <span class="menu-toggle-label">Menu</span>
+              <span class="menu-toggle-label" data-i18n="menu.label">Menu</span>
             </button>
             <nav class="site-nav" id="site-menu" aria-label="Main navigation" hidden>
-              <a href="index.html" class="active" aria-current="page">Home</a>
-              <a href="about.html">About Us</a>
-              <a href="contact.html">Contact Us</a>
+              <a href="index.html" class="active" aria-current="page" data-i18n="nav.home">Home</a>
+              <a href="about.html" data-i18n="nav.about">About Us</a>
+              <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
             </nav>
           </div>
         </div>
@@ -85,13 +125,13 @@
       <section class="hero">
         <div class="container hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">EV CHARGING INFRASTRUCTURE</p>
-            <h1>Building EV-ready communities.</h1>
-            <p class="lede">
+            <p class="eyebrow" data-i18n="hero.eyebrow">EV CHARGING INFRASTRUCTURE</p>
+            <h1 data-i18n="hero.title">Building EV-ready communities.</h1>
+            <p class="lede" data-i18n="hero.description">
               Flash helps residential communities plan, install and manage EV charging
               infrastructure.
             </p>
-            <a class="button primary" href="tel:+916262663664">Talk to Flash</a>
+            <a class="button primary" href="tel:+916262663664" data-i18n="hero.cta">Talk to Flash</a>
           </div>
 
           <div class="hero-visual" aria-hidden="true">
@@ -233,9 +273,9 @@
 
       <section class="section how-section" aria-labelledby="how-flash-works-title">
         <div class="container how-inner">
-          <p class="section-label how-label">HOW FLASH WORKS</p>
-          <h2 id="how-flash-works-title">From EV readiness to everyday charging.</h2>
-          <p class="how-intro">
+          <p class="section-label how-label" data-i18n="howWorks.eyebrow">HOW FLASH WORKS</p>
+          <h2 id="how-flash-works-title" data-i18n="howWorks.title">From EV readiness to everyday charging.</h2>
+          <p class="how-intro" data-i18n="howWorks.description">
             Flash helps residential communities understand their EV needs, plan the right
             infrastructure, install charging solutions, and keep the experience simple as
             adoption grows.
@@ -248,8 +288,8 @@
                 <path d="M4 6h8M4 12h8M4 18h5" />
                 <path d="M15.5 16.5 18 19l4-5" />
               </svg>
-              <h3>Assess</h3>
-              <p>
+              <h3 data-i18n="howWorks.assess.title">Assess</h3>
+              <p data-i18n="howWorks.assess.description">
                 Understand your community's EV readiness, electrical capacity, parking and
                 expected charging demand.
               </p>
@@ -262,8 +302,8 @@
                 <path d="M14 5v5h5" />
                 <path d="M8.5 13h7M8.5 16.5h4.5" />
               </svg>
-              <h3>Plan</h3>
-              <p>
+              <h3 data-i18n="howWorks.plan.title">Plan</h3>
+              <p data-i18n="howWorks.plan.description">
                 Design a practical charging approach that fits the community today and can
                 scale with future EV adoption.
               </p>
@@ -276,8 +316,8 @@
                 <path d="M6.5 6.5h11v4.5A5.5 5.5 0 0 1 12 16.5 5.5 5.5 0 0 1 6.5 11Z" />
                 <path d="M12 16.5V21" />
               </svg>
-              <h3>Install</h3>
-              <p>
+              <h3 data-i18n="howWorks.install.title">Install</h3>
+              <p data-i18n="howWorks.install.description">
                 Deploy the right charging infrastructure with a focus on safety, reliability
                 and a clean installation.
               </p>
@@ -289,8 +329,8 @@
                 <path d="M5 20V14M11 20V9M17 20V5" />
                 <path d="M4 20h14" />
               </svg>
-              <h3>Manage</h3>
-              <p>
+              <h3 data-i18n="howWorks.manage.title">Manage</h3>
+              <p data-i18n="howWorks.manage.description">
                 Keep charging simple for residents while helping the community manage
                 infrastructure as demand grows.
               </p>
@@ -301,9 +341,9 @@
 
       <section class="section impact-section" aria-labelledby="flash-impact-title">
         <div class="container impact-inner">
-          <p class="section-label impact-label">FLASH IMPACT</p>
-          <h2 id="flash-impact-title">Real charging. Real-world impact.</h2>
-          <p class="impact-intro">
+          <p class="section-label impact-label" data-i18n="impact.eyebrow">FLASH IMPACT</p>
+          <h2 id="flash-impact-title" data-i18n="impact.title">Real charging. Real-world impact.</h2>
+          <p class="impact-intro" data-i18n="impact.description">
             Every charging session contributes to a cleaner and more sustainable future
             for our communities.
           </p>
@@ -316,7 +356,7 @@
               <div class="impact-metric" data-target="209.15" data-suffix="kWh">
                 <span class="impact-value">0</span><span class="impact-unit">kWh</span>
               </div>
-              <div class="impact-metric-label">Clean Energy Delivered</div>
+              <div class="impact-metric-label" data-i18n="impact.energyLabel">Clean Energy Delivered</div>
             </article>
 
             <article class="impact-item">
@@ -326,7 +366,7 @@
               <div class="impact-metric" data-target="103.38" data-suffix="kg">
                 <span class="impact-value">0</span><span class="impact-unit">kg</span>
               </div>
-              <div class="impact-metric-label">CO₂ Emissions Reduced</div>
+              <div class="impact-metric-label" data-i18n="impact.co2Label">CO₂ Emissions Reduced</div>
             </article>
 
             <article class="impact-item">
@@ -336,7 +376,7 @@
               <div class="impact-metric" data-target="2091.50" data-suffix="km">
                 <span class="impact-value">0</span><span class="impact-unit">km</span>
               </div>
-              <div class="impact-metric-label">Clean Mobility Enabled</div>
+              <div class="impact-metric-label" data-i18n="impact.mobilityLabel">Clean Mobility Enabled</div>
             </article>
 
             <article class="impact-item">
@@ -346,18 +386,18 @@
               <div class="impact-metric" data-target="14" data-suffix="">
                 <span class="impact-value">0</span>
               </div>
-              <div class="impact-metric-label">Total Charging Sessions</div>
+              <div class="impact-metric-label" data-i18n="impact.sessionsLabel">Total Charging Sessions</div>
             </article>
           </div>
 
-          <p class="impact-note">Based on charging activity across the Flash network.</p>
+          <p class="impact-note" data-i18n="impact.note">Based on charging activity across the Flash network.</p>
         </div>
       </section>
 
       <section id="contact" class="section contact">
         <div class="container">
-          <h2>Start a conversation.</h2>
-          <p>
+          <h2 data-i18n="homeCta.title">Start a conversation.</h2>
+          <p data-i18n="homeCta.description">
             Tell us about your residential community and explore the right EV charging
             solution with Flash.
           </p>
@@ -366,6 +406,8 @@
             href="https://wa.me/916262663664?text=Hello%20Flash%2C%20I%20would%20like%20to%20know%20more%20about%20EV%20charging%20infrastructure%20for%20my%20community."
             target="_blank"
             rel="noopener noreferrer"
+            data-whatsapp-cta
+            data-i18n="homeCta.cta"
             >Contact Flash</a
           >
         </div>

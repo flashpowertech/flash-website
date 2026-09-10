@@ -20,6 +20,25 @@
           }
         }
         document.documentElement.setAttribute('data-theme', theme);
+
+        var storedLang = localStorage.getItem('flash-language');
+        var lang = 'en';
+        if (storedLang === 'en' || storedLang === 'hi' || storedLang === 'gu') {
+          lang = storedLang;
+        } else {
+          try {
+            var browserLangs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+            for (var i = 0; i < browserLangs.length; i++) {
+              var code = (browserLangs[i] || '').toLowerCase();
+              if (code.indexOf('hi') === 0) { lang = 'hi'; break; }
+              if (code.indexOf('gu') === 0) { lang = 'gu'; break; }
+            }
+          } catch (e) {
+            lang = 'en';
+          }
+        }
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,10 +52,30 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="index.html" aria-label="Flash home">
+        <a class="brand" href="index.html" aria-label="Flash home" data-i18n-aria-label="nav.brandAriaLabel">
           <img src="images/flash_logo.png" alt="Flash Powertech" />
         </a>
         <div class="header-controls">
+          <div class="lang-wrapper">
+            <button
+              type="button"
+              id="lang-toggle"
+              class="lang-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="lang-menu"
+              aria-label="Change language"
+              data-i18n-aria-label="language.openLabel"
+            >
+              <span class="lang-toggle-code" id="lang-toggle-code">EN</span>
+              <svg class="lang-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="lang-menu" id="lang-menu" role="menu" aria-label="Language" hidden>
+              <button type="button" class="lang-option" data-lang="en" role="menuitemradio" aria-checked="true">English</button>
+              <button type="button" class="lang-option" data-lang="hi" role="menuitemradio" aria-checked="false">हिन्दी</button>
+              <button type="button" class="lang-option" data-lang="gu" role="menuitemradio" aria-checked="false">ગુજરાતી</button>
+            </div>
+          </div>
           <button
             type="button"
             id="theme-toggle"
@@ -67,14 +106,15 @@
               aria-expanded="false"
               aria-controls="site-menu"
               aria-label="Open menu"
+              data-i18n-aria-label="menu.openLabel"
             >
               <span class="menu-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-              <span class="menu-toggle-label">Menu</span>
+              <span class="menu-toggle-label" data-i18n="menu.label">Menu</span>
             </button>
             <nav class="site-nav" id="site-menu" aria-label="Main navigation" hidden>
-              <a href="index.html">Home</a>
-              <a href="about.html" class="active" aria-current="page">About Us</a>
-              <a href="contact.html">Contact Us</a>
+              <a href="index.html" data-i18n="nav.home">Home</a>
+              <a href="about.html" class="active" aria-current="page" data-i18n="nav.about">About Us</a>
+              <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
             </nav>
           </div>
         </div>
@@ -84,9 +124,9 @@
     <main id="top">
       <section class="section about-hero" aria-labelledby="about-hero-title">
         <div class="container about-hero-inner">
-          <p class="section-label">ABOUT FLASH</p>
-          <h1 id="about-hero-title">Building the foundation for everyday electric mobility.</h1>
-          <p class="about-hero-copy">
+          <p class="section-label" data-i18n="about.hero.eyebrow">ABOUT FLASH</p>
+          <h1 id="about-hero-title" data-i18n="about.hero.title">Building the foundation for everyday electric mobility.</h1>
+          <p class="about-hero-copy" data-i18n="about.hero.description">
             Flash helps residential communities plan, install and manage EV charging
             infrastructure — making the transition to electric mobility simpler,
             smarter and more accessible.
@@ -97,16 +137,16 @@
       <section class="section about-transition" aria-labelledby="about-transition-title">
         <div class="container about-transition-inner">
           <div class="about-transition-copy">
-            <p class="section-label">THE TRANSITION</p>
-            <h2 id="about-transition-title">Electric mobility is no longer a distant future.</h2>
+            <p class="section-label" data-i18n="about.transition.eyebrow">THE TRANSITION</p>
+            <h2 id="about-transition-title" data-i18n="about.transition.title">Electric mobility is no longer a distant future.</h2>
           </div>
 
           <div class="about-transition-body">
-            <p>
+            <p data-i18n="about.transition.body1">
               Electric vehicles are becoming part of everyday life. But as adoption
               grows, the infrastructure needed to support them must grow with it.
             </p>
-            <p>
+            <p data-i18n="about.transition.body2">
               For millions of people living in apartments and residential communities,
               convenient access to reliable charging remains one of the most important
               pieces of the transition.
@@ -118,15 +158,15 @@
       <section class="section about-why" aria-labelledby="about-why-title">
         <div class="container about-why-inner">
           <div class="about-why-copy">
-            <p class="section-label">WHY FLASH EXISTS</p>
-            <h2 id="about-why-title">EV charging is more than installing a charger.</h2>
-            <p>
+            <p class="section-label" data-i18n="about.why.eyebrow">WHY FLASH EXISTS</p>
+            <h2 id="about-why-title" data-i18n="about.why.title">EV charging is more than installing a charger.</h2>
+            <p data-i18n="about.why.body1">
               As more residents switch to electric vehicles, residential communities
               face a new infrastructure challenge. Charging must be planned around
               existing electrical capacity, parking layouts, safety requirements and
               future demand.
             </p>
-            <p>
+            <p data-i18n="about.why.body2">
               Flash was created to help communities navigate this transition with a
               more structured and long-term approach to EV charging infrastructure.
             </p>
@@ -134,15 +174,15 @@
 
           <div class="about-storyline" aria-label="Flash infrastructure progression">
             <div class="storyline-item">
-              <span class="storyline-label">Individual Charger</span>
+              <span class="storyline-label" data-i18n="about.storyline.individual">Individual Charger</span>
             </div>
             <div class="storyline-connector" aria-hidden="true"></div>
             <div class="storyline-item">
-              <span class="storyline-label">Community Planning</span>
+              <span class="storyline-label" data-i18n="about.storyline.community">Community Planning</span>
             </div>
             <div class="storyline-connector" aria-hidden="true"></div>
             <div class="storyline-item">
-              <span class="storyline-label">Scalable Infrastructure</span>
+              <span class="storyline-label" data-i18n="about.storyline.scalable">Scalable Infrastructure</span>
             </div>
           </div>
         </div>
@@ -151,17 +191,17 @@
       <section class="section about-community" aria-labelledby="about-community-title">
         <div class="container about-community-inner">
           <div class="about-community-head">
-            <p class="section-label">BUILT FOR COMMUNITIES</p>
-            <h2 id="about-community-title">Because communities need more than charging points.</h2>
+            <p class="section-label" data-i18n="about.community.eyebrow">BUILT FOR COMMUNITIES</p>
+            <h2 id="about-community-title" data-i18n="about.community.title">Because communities need more than charging points.</h2>
           </div>
 
           <div class="about-community-copy">
-            <p>
+            <p data-i18n="about.community.body1">
               Every residential community is different. Parking layouts, electrical
               infrastructure, resident needs and future EV adoption all shape the
               right charging strategy.
             </p>
-            <p>
+            <p data-i18n="about.community.body2">
               Flash takes a community-first approach to EV infrastructure, helping
               societies move beyond individual charging points toward a solution
               designed for the entire community.
@@ -170,34 +210,34 @@
 
           <div class="community-ecosystem" aria-label="Community considerations for EV infrastructure">
             <div class="ecosystem-core">
-              <span>Community</span>
+              <span data-i18n="about.ecosystem.core">Community</span>
             </div>
 
             <div class="ecosystem-rail ecosystem-top-left">
               <div class="ecosystem-item">
-                <span class="ecosystem-kicker">Power</span>
-                <span class="ecosystem-text">Existing electrical capacity</span>
+                <span class="ecosystem-kicker" data-i18n="about.ecosystem.power.kicker">Power</span>
+                <span class="ecosystem-text" data-i18n="about.ecosystem.power.text">Existing electrical capacity</span>
               </div>
             </div>
 
             <div class="ecosystem-rail ecosystem-top-right">
               <div class="ecosystem-item">
-                <span class="ecosystem-kicker">Parking</span>
-                <span class="ecosystem-text">Layout and accessibility</span>
+                <span class="ecosystem-kicker" data-i18n="about.ecosystem.parking.kicker">Parking</span>
+                <span class="ecosystem-text" data-i18n="about.ecosystem.parking.text">Layout and accessibility</span>
               </div>
             </div>
 
             <div class="ecosystem-rail ecosystem-bottom-left">
               <div class="ecosystem-item">
-                <span class="ecosystem-kicker">People</span>
-                <span class="ecosystem-text">Resident needs and adoption</span>
+                <span class="ecosystem-kicker" data-i18n="about.ecosystem.people.kicker">People</span>
+                <span class="ecosystem-text" data-i18n="about.ecosystem.people.text">Resident needs and adoption</span>
               </div>
             </div>
 
             <div class="ecosystem-rail ecosystem-bottom-right">
               <div class="ecosystem-item">
-                <span class="ecosystem-kicker">Growth</span>
-                <span class="ecosystem-text">Future scalability</span>
+                <span class="ecosystem-kicker" data-i18n="about.ecosystem.growth.kicker">Growth</span>
+                <span class="ecosystem-text" data-i18n="about.ecosystem.growth.text">Future scalability</span>
               </div>
             </div>
           </div>
@@ -207,9 +247,9 @@
       <section class="section about-journey" aria-labelledby="about-journey-title">
         <div class="container about-journey-inner">
           <div class="about-journey-head">
-            <p class="section-label">THE FLASH APPROACH</p>
-            <h2 id="about-journey-title">From EV readiness to everyday charging.</h2>
-            <p>
+            <p class="section-label" data-i18n="about.journey.eyebrow">THE FLASH APPROACH</p>
+            <h2 id="about-journey-title" data-i18n="about.journey.title">From EV readiness to everyday charging.</h2>
+            <p data-i18n="about.journey.description">
               Building EV infrastructure is a journey, not a one-time installation.
               Flash helps communities take a structured approach—from understanding
               their current readiness to creating infrastructure that can support the
@@ -221,40 +261,40 @@
             <div class="journey-step is-active">
               <div class="step-index">01</div>
               <div class="step-content">
-                <span class="step-name">Assess</span>
-                <p>Understand the community's current infrastructure and EV readiness.</p>
+                <span class="step-name" data-i18n="about.journey.step1.name">Assess</span>
+                <p data-i18n="about.journey.step1.description">Understand the community's current infrastructure and EV readiness.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <div class="step-index">02</div>
               <div class="step-content">
-                <span class="step-name">Plan</span>
-                <p>Develop a charging strategy around the community's requirements.</p>
+                <span class="step-name" data-i18n="about.journey.step2.name">Plan</span>
+                <p data-i18n="about.journey.step2.description">Develop a charging strategy around the community's requirements.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <div class="step-index">03</div>
               <div class="step-content">
-                <span class="step-name">Install</span>
-                <p>Deploy charging infrastructure designed for safe and reliable operation.</p>
+                <span class="step-name" data-i18n="about.journey.step3.name">Install</span>
+                <p data-i18n="about.journey.step3.description">Deploy charging infrastructure designed for safe and reliable operation.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <div class="step-index">04</div>
               <div class="step-content">
-                <span class="step-name">Manage</span>
-                <p>Support the day-to-day charging experience and infrastructure operations.</p>
+                <span class="step-name" data-i18n="about.journey.step4.name">Manage</span>
+                <p data-i18n="about.journey.step4.description">Support the day-to-day charging experience and infrastructure operations.</p>
               </div>
             </div>
 
             <div class="journey-step">
               <div class="step-index">05</div>
               <div class="step-content">
-                <span class="step-name">Scale</span>
-                <p>Remain prepared as EV adoption within the community grows.</p>
+                <span class="step-name" data-i18n="about.journey.step5.name">Scale</span>
+                <p data-i18n="about.journey.step5.description">Remain prepared as EV adoption within the community grows.</p>
               </div>
             </div>
           </div>
@@ -263,9 +303,9 @@
 
       <section class="section about-vision" aria-labelledby="about-vision-title">
         <div class="container about-vision-inner">
-          <p class="section-label">OUR VISION</p>
-          <h2 id="about-vision-title">A future where every community is ready for electric mobility.</h2>
-          <p class="about-vision-copy">
+          <p class="section-label" data-i18n="about.vision.eyebrow">OUR VISION</p>
+          <h2 id="about-vision-title" data-i18n="about.vision.title">A future where every community is ready for electric mobility.</h2>
+          <p class="about-vision-copy" data-i18n="about.vision.description">
             We believe EV readiness will become an essential part of modern residential
             infrastructure. Flash is building toward a future where communities can
             adopt electric mobility with confidence—without waiting for infrastructure
@@ -276,9 +316,9 @@
 
       <section class="section about-cta" aria-labelledby="about-cta-title">
         <div class="container about-cta-inner">
-          <p class="section-label">READY FOR WHAT'S NEXT?</p>
-          <h2 id="about-cta-title">Is your community ready for electric mobility?</h2>
-          <p>
+          <p class="section-label" data-i18n="about.cta.eyebrow">READY FOR WHAT'S NEXT?</p>
+          <h2 id="about-cta-title" data-i18n="about.cta.title">Is your community ready for electric mobility?</h2>
+          <p data-i18n="about.cta.description">
             Whether your community is beginning its EV journey or planning for growing
             adoption, Flash can help you explore the right path forward.
           </p>
@@ -287,6 +327,8 @@
             href="https://wa.me/916262663664?text=Hello%20Flash%2C%20I%20would%20like%20to%20know%20more%20about%20EV%20charging%20infrastructure%20for%20my%20community."
             target="_blank"
             rel="noopener noreferrer"
+            data-whatsapp-cta
+            data-i18n="about.cta.button"
           >
             Talk to Flash
           </a>
