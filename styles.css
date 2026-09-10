@@ -1841,8 +1841,22 @@ h2 {
 }
 
 .site-footer {
+  /* Footer stays permanently dark in both themes, matching the header. */
+  --bg: #07171b;
+  --bg-elevated: #0d2128;
+  --surface: #102a31;
+  --text: #f3f7f8;
+  --muted: #a9b7bb;
+  --accent: #4fd4c7;
+  --accent-strong: #82ece0;
+  --border: rgba(255, 255, 255, 0.08);
+  --bg-rgb: 7, 23, 27;
+  --bg-elevated-rgb: 13, 32, 38;
+  --line-rgb: 255, 255, 255;
+  --muted-rgb: 169, 183, 187;
   padding: 2rem 0 3rem;
   border-top: 1px solid var(--border);
+  background: rgba(var(--bg-rgb), 0.9);
 }
 
 .site-footer p {
