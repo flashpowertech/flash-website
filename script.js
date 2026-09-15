@@ -57,6 +57,27 @@ const TRANSLATIONS = {
       description: 'Tell us about your residential community and explore the right EV charging solution with Flash.',
       cta: 'Contact Flash',
     },
+    faq: {
+      eyebrow: 'FREQUENTLY ASKED QUESTIONS',
+      title: 'Answers before you get started.',
+      description: 'A few common questions about EV charging infrastructure for residential communities.',
+      question1: 'What does Flash Powertech do?',
+      answer1: "Flash helps residential communities plan, install and manage EV charging infrastructure, from understanding a society's EV readiness to deploying and managing charging solutions.",
+      question2: 'Do you install EV chargers in residential societies?',
+      answer2: 'Yes. Flash works with residential communities to assess their requirements, plan suitable charging infrastructure and coordinate installation.',
+      question3: 'Does a society need to invest in the charging infrastructure?',
+      answer3: "Not necessarily. Flash offers different engagement models depending on the society's requirements, including models where Flash invests in the infrastructure.",
+      question4: 'What is a Flash EV Readiness Assessment (FERA)?',
+      answer4: "FERA is Flash's assessment framework for understanding a society's readiness for EV charging, including factors such as electrical capacity, parking, existing EV adoption and future charging requirements.",
+      question5: "Can Flash help if our society doesn't have many EVs yet?",
+      answer5: 'Yes. Flash can help communities plan infrastructure based on their current needs while keeping future EV adoption in mind.',
+      question6: 'What type of EV chargers does Flash install?',
+      answer6: 'Flash focuses on charging solutions appropriate for the community and its electrical infrastructure, including AC charging for residential societies and DC fast-charging solutions for strategically located public charging sites.',
+      question7: 'How does EV charging work in a residential society?',
+      answer7: 'Flash helps establish the charging infrastructure, while residents can use the available chargers to charge their EVs. The exact operating and payment model depends on the arrangement with the society.',
+      question8: 'How can our society get started with Flash?',
+      answer8: 'Simply contact Flash. We can start with a conversation about your society, understand your current EV requirements and help determine the right next step.',
+    },
     about: {
       hero: {
         eyebrow: 'ABOUT FLASH',
@@ -211,6 +232,27 @@ const TRANSLATIONS = {
       title: 'बातचीत शुरू करें।',
       description: 'हमें अपने आवासीय समुदाय के बारे में बताएं और फ्लैश के साथ सही EV चार्जिंग समाधान खोजें।',
       cta: 'फ्लैश से संपर्क करें',
+    },
+    faq: {
+      eyebrow: 'अक्सर पूछे जाने वाले सवाल',
+      title: 'शुरू करने से पहले जवाब।',
+      description: 'आवासीय समुदायों के लिए EV चार्जिंग इंफ्रास्ट्रक्चर के बारे में कुछ सामान्य सवाल।',
+      question1: 'फ्लैश पावरटेक क्या करता है?',
+      answer1: 'फ्लैश आवासीय समुदायों को EV चार्जिंग इंफ्रास्ट्रक्चर की योजना बनाने, स्थापित करने और प्रबंधित करने में मदद करता है, जिसमें सोसाइटी की EV तैयारी समझने से लेकर चार्जिंग समाधान लागू करने और प्रबंधित करने तक शामिल है।',
+      question2: 'क्या आप आवासीय सोसाइटियों में EV चार्जर स्थापित करते हैं?',
+      answer2: 'हाँ। फ्लैश आवासीय समुदायों की आवश्यकताओं का आकलन करने, उपयुक्त चार्जिंग इंफ्रास्ट्रक्चर की योजना बनाने और इंस्टॉलेशन का समन्वय करने में मदद करता है।',
+      question3: 'क्या सोसाइटी को चार्जिंग इंफ्रास्ट्रक्चर में निवेश करना होता है?',
+      answer3: 'ज़रूरी नहीं। फ्लैश सोसाइटी की आवश्यकताओं के अनुसार अलग-अलग मॉडल प्रदान करता है, जिसमें ऐसे मॉडल भी शामिल हैं जहाँ फ्लैश इंफ्रास्ट्रक्चर में निवेश करता है।',
+      question4: 'फ्लैश EV रेडीनेस असेसमेंट (FERA) क्या है?',
+      answer4: 'FERA सोसाइटी की EV चार्जिंग तैयारी को समझने का फ्लैश का आकलन ढाँचा है, जिसमें विद्युत क्षमता, पार्किंग, मौजूदा EV अपनाने और भविष्य की चार्जिंग आवश्यकताओं जैसे कारक शामिल हैं।',
+      question5: 'क्या हमारी सोसाइटी में अभी बहुत अधिक EV न होने पर भी फ्लैश मदद कर सकता है?',
+      answer5: 'हाँ। फ्लैश वर्तमान आवश्यकताओं के आधार पर इंफ्रास्ट्रक्चर की योजना बनाने में मदद कर सकता है और भविष्य में EV अपनाने को भी ध्यान में रखता है।',
+      question6: 'फ्लैश किस प्रकार के EV चार्जर स्थापित करता है?',
+      answer6: 'फ्लैश समुदाय और उसके विद्युत इंफ्रास्ट्रक्चर के लिए उपयुक्त चार्जिंग समाधान पर ध्यान देता है, जिसमें आवासीय सोसाइटियों के लिए AC चार्जिंग और रणनीतिक सार्वजनिक चार्जिंग साइटों के लिए DC फास्ट-चार्जिंग समाधान शामिल हैं।',
+      question7: 'आवासीय सोसाइटी में EV चार्जिंग कैसे काम करती है?',
+      answer7: 'फ्लैश चार्जिंग इंफ्रास्ट्रक्चर स्थापित करने में मदद करता है, जबकि निवासी उपलब्ध चार्जर से अपने EV चार्ज कर सकते हैं। संचालन और भुगतान का मॉडल सोसाइटी के साथ हुए समझौते पर निर्भर करता है।',
+      question8: 'हमारी सोसाइटी फ्लैश के साथ कैसे शुरुआत कर सकती है?',
+      answer8: 'बस फ्लैश से संपर्क करें। हम आपकी सोसाइटी के बारे में बातचीत से शुरुआत कर सकते हैं, आपकी वर्तमान EV आवश्यकताओं को समझ सकते हैं और अगला सही कदम तय करने में मदद कर सकते हैं।',
     },
     about: {
       hero: {
@@ -369,6 +411,27 @@ const TRANSLATIONS = {
       title: 'વાતચીત શરૂ કરો.',
       description: 'અમને તમારા રહેણાંક સમુદાય વિશે જણાવો અને ફ્લેશ સાથે યોગ્ય EV ચાર્જિંગ સોલ્યુશન શોધો.',
       cta: 'ફ્લેશનો સંપર્ક કરો',
+    },
+    faq: {
+      eyebrow: 'વારંવાર પૂછાતા પ્રશ્નો',
+      title: 'શરૂઆત કરતા પહેલાં જવાબો.',
+      description: 'રહેણાંક સમુદાયો માટે EV ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર વિશેના કેટલાક સામાન્ય પ્રશ્નો.',
+      question1: 'ફ્લેશ પાવરટેક શું કરે છે?',
+      answer1: 'ફ્લેશ રહેણાંક સમુદાયોને EV ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન, ઇન્સ્ટોલેશન અને સંચાલન કરવામાં મદદ કરે છે, જેમાં સોસાયટીની EV તૈયારી સમજવાથી લઈને ચાર્જિંગ સોલ્યુશન્સ સ્થાપિત અને સંચાલિત કરવા સુધીનો સમાવેશ થાય છે.',
+      question2: 'શું તમે રહેણાંક સોસાયટીઓમાં EV ચાર્જર ઇન્સ્ટોલ કરો છો?',
+      answer2: 'હા. ફ્લેશ રહેણાંક સમુદાયોની જરૂરિયાતોનું મૂલ્યાંકન કરવામાં, યોગ્ય ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન કરવામાં અને ઇન્સ્ટોલેશનનું સંકલન કરવામાં મદદ કરે છે.',
+      question3: 'શું સોસાયટીએ ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરમાં રોકાણ કરવું પડે છે?',
+      answer3: 'જરૂરી નથી. ફ્લેશ સોસાયટીની જરૂરિયાતો અનુસાર વિવિધ જોડાણ મોડલ આપે છે, જેમાં ફ્લેશ ઈન્ફ્રાસ્ટ્રક્ચરમાં રોકાણ કરે તેવા મોડલ પણ સામેલ છે.',
+      question4: 'ફ્લેશ EV રેડીનેસ એસેસમેન્ટ (FERA) શું છે?',
+      answer4: 'FERA એ EV ચાર્જિંગ માટે સોસાયટીની તૈયારી સમજવા માટેનું ફ્લેશનું મૂલ્યાંકન માળખું છે, જેમાં વિદ્યુત ક્ષમતા, પાર્કિંગ, હાલનું EV અપનાવવું અને ભવિષ્યની ચાર્જિંગ જરૂરિયાતો જેવા પરિબળો સામેલ છે.',
+      question5: 'જો અમારી સોસાયટીમાં હજુ ઘણા EV ન હોય તો શું ફ્લેશ મદદ કરી શકે?',
+      answer5: 'હા. ફ્લેશ વર્તમાન જરૂરિયાતોના આધારે ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન કરવામાં મદદ કરી શકે છે અને ભવિષ્યમાં EV અપનાવવાને પણ ધ્યાનમાં રાખે છે.',
+      question6: 'ફ્લેશ કયા પ્રકારના EV ચાર્જર ઇન્સ્ટોલ કરે છે?',
+      answer6: 'ફ્લેશ સમુદાય અને તેના વિદ્યુત ઈન્ફ્રાસ્ટ્રક્ચર માટે યોગ્ય ચાર્જિંગ સોલ્યુશન્સ પર ધ્યાન આપે છે, જેમાં રહેણાંક સોસાયટીઓ માટે AC ચાર્જિંગ અને વ્યૂહાત્મક રીતે સ્થિત જાહેર ચાર્જિંગ સાઇટ્સ માટે DC ફાસ્ટ-ચાર્જિંગ સોલ્યુશન્સ સામેલ છે.',
+      question7: 'રહેણાંક સોસાયટીમાં EV ચાર્જિંગ કેવી રીતે કામ કરે છે?',
+      answer7: 'ફ્લેશ ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર સ્થાપિત કરવામાં મદદ કરે છે, જ્યારે રહેવાસીઓ ઉપલબ્ધ ચાર્જરનો ઉપયોગ કરીને તેમના EV ચાર્જ કરી શકે છે. ચોક્કસ સંચાલન અને ચુકવણી મોડલ સોસાયટી સાથેની વ્યવસ્થા પર આધારિત છે.',
+      question8: 'અમારી સોસાયટી ફ્લેશ સાથે કેવી રીતે શરૂઆત કરી શકે?',
+      answer8: 'ફક્ત ફ્લેશનો સંપર્ક કરો. અમે તમારી સોસાયટી વિશેની વાતચીતથી શરૂઆત કરી શકીએ છીએ, તમારી વર્તમાન EV જરૂરિયાતો સમજી શકીએ છીએ અને યોગ્ય આગલું પગલું નક્કી કરવામાં મદદ કરી શકીએ છીએ.',
     },
     about: {
       hero: {
@@ -735,6 +798,48 @@ const setActiveNavigation = () => {
   });
 };
 
+const initFaq = () => {
+  const faqItems = [...document.querySelectorAll('.faq-item')];
+  if (!faqItems.length) return;
+
+  const closeItem = (item) => {
+    item.classList.remove('is-open');
+    item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    item.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+  };
+
+  const openItem = (item) => {
+    faqItems.forEach((faqItem) => {
+      if (faqItem !== item) closeItem(faqItem);
+    });
+
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.toggle('is-open');
+    question.setAttribute('aria-expanded', String(isOpen));
+    answer.setAttribute('aria-hidden', String(!isOpen));
+  };
+
+  faqItems.forEach((item, index) => {
+    const question = item.querySelector('.faq-question');
+
+    question.addEventListener('click', () => openItem(item));
+    question.addEventListener('keydown', (event) => {
+      let nextIndex;
+
+      if (event.key === 'ArrowDown') nextIndex = (index + 1) % faqItems.length;
+      if (event.key === 'ArrowUp') nextIndex = (index - 1 + faqItems.length) % faqItems.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = faqItems.length - 1;
+
+      if (nextIndex === undefined) return;
+
+      event.preventDefault();
+      faqItems[nextIndex].querySelector('.faq-question').focus();
+    });
+  });
+};
+
 const formatNumber = (value, decimals = 0) => {
   if (decimals > 0) {
     return Number(value).toLocaleString(undefined, {
@@ -809,6 +914,7 @@ initThemeToggle();
 initMenu();
 initLanguage();
 setActiveNavigation();
+initFaq();
 
 const flashWhatsappUrl = 'https://wa.me/916262663664';
 
