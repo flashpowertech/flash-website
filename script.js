@@ -6,8 +6,9 @@ const LANGUAGE_STORAGE_KEY = 'flash-language';
 // Translation dictionary: namespaced, dot-path keys resolved via translate().
 const TRANSLATIONS = {
   en: {
-    nav: { home: 'Home', about: 'About Us', contact: 'Contact Us', brandAriaLabel: 'Flash home' },
+    nav: { home: 'Home', about: 'About Us', services: 'Our Services', contact: 'Contact Us', brandAriaLabel: 'Flash home' },
     menu: { label: 'Menu', openLabel: 'Open menu' },
+    footer: { copyright: '© 2026 Flash Powertech Private Limited' },
     theme: { switchToLight: 'Switch to light mode', switchToDark: 'Switch to dark mode' },
     language: { openLabel: 'Change language' },
     validation: { required: 'This field is required.' },
@@ -77,6 +78,45 @@ const TRANSLATIONS = {
       answer7: 'Flash helps establish the charging infrastructure, while residents can use the available chargers to charge their EVs. The exact operating and payment model depends on the arrangement with the society.',
       question8: 'How can our society get started with Flash?',
       answer8: 'Simply contact Flash. We can start with a conversation about your society, understand your current EV requirements and help determine the right next step.',
+    },
+    services: {
+      hero: {
+        eyebrow: 'OUR SERVICES',
+        title: 'EV infrastructure designed around your community.',
+        description: "From existing residential societies to new developments, Flash helps communities plan, install and manage EV charging infrastructure with a clear path from today's needs to tomorrow's adoption.",
+        cta: 'Talk to Flash',
+      },
+      selectorLabel: 'Choose a community type',
+      tabs: { societies: 'EXISTING RESIDENTIAL SOCIETIES', developers: 'DEVELOPERS' },
+      societies: {
+        heading: 'Make your society EV-ready.',
+        intro: 'Flash works with residential communities to understand EV demand, assess infrastructure readiness, install charging systems and manage charging as adoption grows.',
+        cards: [
+          { title: 'EV Readiness Assessment', text: "Understand where your community stands today. Flash assesses EV adoption, electrical capacity, parking conditions and charging requirements to create a practical picture of your society's EV readiness." },
+          { title: 'Charging Infrastructure', text: "Plan and install charging infrastructure designed around your society's actual requirements, with safety, reliability and future scalability considered from the beginning." },
+          { title: 'Managed Charging', text: 'Give residents a simple way to charge while keeping charging infrastructure organised and manageable for the community.' },
+          { title: 'Scalable EV Infrastructure', text: 'EV adoption grows over time. Flash helps communities build infrastructure that can expand with demand instead of requiring everything to be solved at once.' },
+        ],
+        fera: 'FERA — Flash EV Readiness Assessment',
+        ctaTitle: 'Not sure where your society stands?',
+        ctaText: 'Start with an EV Readiness Assessment and understand what your community needs next.',
+      },
+      developers: {
+        heading: 'Build EV readiness into the community from day one.',
+        intro: "For new residential developments, EV infrastructure can be considered as part of the community's planning rather than added later as demand appears.",
+        cards: [
+          { title: 'EV-Ready Planning', text: 'Consider EV charging requirements during community planning so future residents have a clear path to charging as EV adoption grows.' },
+          { title: 'Electrical & Charging Infrastructure', text: 'Plan the electrical and charging infrastructure required to support EV adoption while keeping future expansion in mind.' },
+          { title: 'Resident Charging Readiness', text: 'Design the charging approach around how residents will actually use the community, including practical considerations around parking and charging access.' },
+          { title: 'Future-Ready Communities', text: 'Create a foundation that can adapt as EV ownership increases, helping the community move from initial readiness to long-term charging infrastructure.' },
+        ],
+      },
+      approach: {
+        eyebrow: 'OUR APPROACH', title: 'Designed for today. Ready for what’s next.',
+        description: 'Flash looks beyond the first charger. We consider the community, the infrastructure, the residents and the expected growth in EV adoption so charging can evolve without unnecessary complexity.',
+      },
+      closing: { eyebrow: 'READY WHEN YOU ARE', title: 'Let’s build an EV-ready community.', description: 'Whether your community is already home to EV owners or still being planned, Flash can help you understand what comes next.', cta: 'Talk to Flash' },
+      serviceLabel: 'Service', tabPanelLabel: 'Services for this community type', approachLabel: 'How Flash works', ctaLabel: 'Contact Flash on WhatsApp',
     },
     about: {
       hero: {
@@ -188,8 +228,9 @@ const TRANSLATIONS = {
     },
   },
   hi: {
-    nav: { home: 'होम', about: 'हमारे बारे में', contact: 'संपर्क करें', brandAriaLabel: 'फ्लैश होम' },
+    nav: { home: 'होम', about: 'हमारे बारे में', services: 'हमारी सेवाएं', contact: 'संपर्क करें', brandAriaLabel: 'फ्लैश होम' },
     menu: { label: 'मेन्यू', openLabel: 'मेन्यू खोलें' },
+    footer: { copyright: '© 2026 फ्लैश पावरटेक प्राइवेट लिमिटेड' },
     theme: { switchToLight: 'लाइट मोड में बदलें', switchToDark: 'डार्क मोड में बदलें' },
     language: { openLabel: 'भाषा बदलें' },
     validation: { required: 'यह फ़ील्ड आवश्यक है।' },
@@ -253,6 +294,14 @@ const TRANSLATIONS = {
       answer7: 'फ्लैश चार्जिंग इंफ्रास्ट्रक्चर स्थापित करने में मदद करता है, जबकि निवासी उपलब्ध चार्जर से अपने EV चार्ज कर सकते हैं। संचालन और भुगतान का मॉडल सोसाइटी के साथ हुए समझौते पर निर्भर करता है।',
       question8: 'हमारी सोसाइटी फ्लैश के साथ कैसे शुरुआत कर सकती है?',
       answer8: 'बस फ्लैश से संपर्क करें। हम आपकी सोसाइटी के बारे में बातचीत से शुरुआत कर सकते हैं, आपकी वर्तमान EV आवश्यकताओं को समझ सकते हैं और अगला सही कदम तय करने में मदद कर सकते हैं।',
+    },
+    services: {
+      hero: { eyebrow: 'हमारी सेवाएं', title: 'आपके समुदाय के अनुसार तैयार EV इंफ्रास्ट्रक्चर।', description: 'मौजूदा आवासीय सोसाइटियों से लेकर नए विकास तक, फ्लैश समुदायों को EV चार्जिंग इंफ्रास्ट्रक्चर की योजना बनाने, स्थापित करने और प्रबंधित करने में मदद करता है, ताकि आज की जरूरतों से कल के उपयोग तक स्पष्ट राह बने।', cta: 'फ्लैश से बात करें' },
+      selectorLabel: 'समुदाय का प्रकार चुनें', tabs: { societies: 'मौजूदा आवासीय सोसाइटियां', developers: 'डेवलपर्स' },
+      societies: { heading: 'अपनी सोसाइटी को EV-रेडी बनाएं।', intro: 'फ्लैश आवासीय समुदायों के साथ EV मांग समझने, इंफ्रास्ट्रक्चर की तैयारी का आकलन करने, चार्जिंग सिस्टम स्थापित करने और उपयोग बढ़ने के साथ चार्जिंग प्रबंधित करने के लिए काम करता है।', cards: [{ title: 'EV तैयारी का आकलन', text: 'समझें कि आपका समुदाय आज कहाँ खड़ा है। फ्लैश EV अपनाने, विद्युत क्षमता, पार्किंग की स्थिति और चार्जिंग आवश्यकताओं का आकलन कर आपकी सोसाइटी की EV तैयारी की व्यावहारिक तस्वीर बनाता है।' }, { title: 'चार्जिंग इंफ्रास्ट्रक्चर', text: 'आपकी सोसाइटी की वास्तविक आवश्यकताओं के अनुसार चार्जिंग इंफ्रास्ट्रक्चर की योजना बनाएं और स्थापित करें, जिसमें शुरुआत से सुरक्षा, विश्वसनीयता और भविष्य में विस्तार का ध्यान रखा जाए।' }, { title: 'प्रबंधित चार्जिंग', text: 'निवासियों को चार्ज करने का सरल तरीका दें और साथ ही चार्जिंग इंफ्रास्ट्रक्चर को समुदाय के लिए व्यवस्थित और प्रबंधनीय रखें।' }, { title: 'विस्तार योग्य EV इंफ्रास्ट्रक्चर', text: 'EV अपनाना समय के साथ बढ़ता है। फ्लैश समुदायों को ऐसा इंफ्रास्ट्रक्चर बनाने में मदद करता है जो मांग के साथ बढ़ सके, बजाय इसके कि सब कुछ एक साथ हल करना पड़े।' }], fera: 'FERA — Flash EV Readiness Assessment', ctaTitle: 'पता नहीं आपकी सोसाइटी कहाँ खड़ी है?', ctaText: 'EV तैयारी के आकलन से शुरुआत करें और समझें कि आपके समुदाय को आगे क्या चाहिए।' },
+      developers: { heading: 'पहले दिन से समुदाय में EV तैयारी बनाएं।', intro: 'नए आवासीय विकास के लिए EV इंफ्रास्ट्रक्चर को मांग आने के बाद जोड़ने के बजाय समुदाय की योजना का हिस्सा बनाया जा सकता है।', cards: [{ title: 'EV-रेडी योजना', text: 'समुदाय की योजना बनाते समय EV चार्जिंग आवश्यकताओं पर विचार करें, ताकि EV अपनाने के साथ भविष्य के निवासियों के लिए चार्जिंग का स्पष्ट रास्ता हो।' }, { title: 'विद्युत और चार्जिंग इंफ्रास्ट्रक्चर', text: 'EV अपनाने को सहयोग देने वाले विद्युत और चार्जिंग इंफ्रास्ट्रक्चर की योजना बनाएं और भविष्य के विस्तार को ध्यान में रखें।' }, { title: 'निवासी चार्जिंग तैयारी', text: 'चार्जिंग व्यवस्था को इस आधार पर तैयार करें कि निवासी वास्तव में समुदाय का उपयोग कैसे करेंगे, जिसमें पार्किंग और चार्जिंग की पहुंच जैसे व्यावहारिक पहलू शामिल हैं।' }, { title: 'भविष्य के लिए तैयार समुदाय', text: 'ऐसी नींव बनाएं जो EV स्वामित्व बढ़ने के साथ अनुकूलित हो सके और समुदाय को शुरुआती तैयारी से दीर्घकालिक चार्जिंग इंफ्रास्ट्रक्चर तक ले जा सके।' }] },
+      approach: { eyebrow: 'हमारा दृष्टिकोण', title: 'आज के लिए तैयार। आगे के लिए सक्षम।', description: 'फ्लैश पहले चार्जर से आगे देखता है। हम समुदाय, इंफ्रास्ट्रक्चर, निवासियों और EV अपनाने की अपेक्षित वृद्धि को ध्यान में रखते हैं, ताकि चार्जिंग बिना अनावश्यक जटिलता के विकसित हो सके।' },
+      closing: { eyebrow: 'जब आप तैयार हों', title: 'आइए एक EV-रेडी समुदाय बनाएं।', description: 'चाहे आपका समुदाय पहले से EV मालिकों का घर हो या अभी योजना में हो, फ्लैश आपको आगे क्या करना है यह समझने में मदद कर सकता है।', cta: 'फ्लैश से बात करें' }, serviceLabel: 'सेवा', tabPanelLabel: 'इस समुदाय प्रकार के लिए सेवाएं', approachLabel: 'फ्लैश कैसे काम करता है', ctaLabel: 'WhatsApp पर फ्लैश से संपर्क करें',
     },
     about: {
       hero: {
@@ -364,8 +413,9 @@ const TRANSLATIONS = {
     },
   },
   gu: {
-    nav: { home: 'હોમ', about: 'અમારા વિશે', contact: 'સંપર્ક કરો', brandAriaLabel: 'ફ્લેશ હોમ' },
+    nav: { home: 'હોમ', about: 'અમારા વિશે', services: 'અમારી સેવાઓ', contact: 'સંપર્ક કરો', brandAriaLabel: 'ફ્લેશ હોમ' },
     menu: { label: 'મેનુ', openLabel: 'મેનુ ખોલો' },
+    footer: { copyright: '© 2026 ફ્લેશ પાવરટેક પ્રાઇવેટ લિમિટેડ' },
     theme: { switchToLight: 'લાઇટ મોડ પર સ્વિચ કરો', switchToDark: 'ડાર્ક મોડ પર સ્વિચ કરો' },
     language: { openLabel: 'ભાષા બદલો' },
     validation: { required: 'આ ફીલ્ડ જરૂરી છે.' },
@@ -432,6 +482,14 @@ const TRANSLATIONS = {
       answer7: 'ફ્લેશ ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર સ્થાપિત કરવામાં મદદ કરે છે, જ્યારે રહેવાસીઓ ઉપલબ્ધ ચાર્જરનો ઉપયોગ કરીને તેમના EV ચાર્જ કરી શકે છે. ચોક્કસ સંચાલન અને ચુકવણી મોડલ સોસાયટી સાથેની વ્યવસ્થા પર આધારિત છે.',
       question8: 'અમારી સોસાયટી ફ્લેશ સાથે કેવી રીતે શરૂઆત કરી શકે?',
       answer8: 'ફક્ત ફ્લેશનો સંપર્ક કરો. અમે તમારી સોસાયટી વિશેની વાતચીતથી શરૂઆત કરી શકીએ છીએ, તમારી વર્તમાન EV જરૂરિયાતો સમજી શકીએ છીએ અને યોગ્ય આગલું પગલું નક્કી કરવામાં મદદ કરી શકીએ છીએ.',
+    },
+    services: {
+      hero: { eyebrow: 'અમારી સેવાઓ', title: 'તમારા સમુદાયને ધ્યાનમાં રાખીને તૈયાર કરાયેલ EV ઈન્ફ્રાસ્ટ્રક્ચર.', description: 'હાલની રહેણાંક સોસાયટીઓથી લઈને નવા વિકાસ સુધી, ફ્લેશ સમુદાયોને EV ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન, ઇન્સ્ટોલેશન અને સંચાલન કરવામાં મદદ કરે છે, જેથી આજની જરૂરિયાતોથી આવતીકાલના અપનાવવા સુધીનો સ્પષ્ટ માર્ગ બને.', cta: 'ફ્લેશ સાથે વાત કરો' },
+      selectorLabel: 'સમુદાયનો પ્રકાર પસંદ કરો', tabs: { societies: 'હાલની રહેણાંક સોસાયટીઓ', developers: 'ડેવલપર્સ' },
+      societies: { heading: 'તમારી સોસાયટીને EV-રેડી બનાવો.', intro: 'ફ્લેશ રહેણાંક સમુદાયો સાથે EV માંગ સમજવા, ઈન્ફ્રાસ્ટ્રક્ચરની તૈયારીનું મૂલ્યાંકન કરવા, ચાર્જિંગ સિસ્ટમ ઇન્સ્ટોલ કરવા અને અપનાવવું વધે તેમ ચાર્જિંગનું સંચાલન કરવા માટે કામ કરે છે.', cards: [{ title: 'EV તૈયારીનું મૂલ્યાંકન', text: 'તમારો સમુદાય આજે ક્યાં ઊભો છે તે સમજો. ફ્લેશ EV અપનાવવું, વિદ્યુત ક્ષમતા, પાર્કિંગની સ્થિતિ અને ચાર્જિંગ જરૂરિયાતોનું મૂલ્યાંકન કરીને તમારી સોસાયટીની EV તૈયારીની વ્યવહારુ તસવીર બનાવે છે.' }, { title: 'ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર', text: 'શરૂઆતથી સલામતી, વિશ્વસનીયતા અને ભવિષ્યના વિસ્તરણને ધ્યાનમાં રાખીને તમારી સોસાયટીની વાસ્તવિક જરૂરિયાતો અનુસાર ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન અને ઇન્સ્ટોલેશન કરો.' }, { title: 'સંચાલિત ચાર્જિંગ', text: 'રહેવાસીઓને ચાર્જ કરવા માટે સરળ રીત આપો અને ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરને સમુદાય માટે વ્યવસ્થિત અને સંચાલિત રાખો.' }, { title: 'વિસ્તરણક્ષમ EV ઈન્ફ્રાસ્ટ્રક્ચર', text: 'EV અપનાવવું સમય સાથે વધે છે. ફ્લેશ સમુદાયોને એવું ઈન્ફ્રાસ્ટ્રક્ચર બનાવવામાં મદદ કરે છે જે માંગ સાથે વિસ્તરી શકે, બધું એકસાથે ઉકેલવાની જરૂર ન રહે.' }], fera: 'FERA — Flash EV Readiness Assessment', ctaTitle: 'તમારી સોસાયટી ક્યાં ઊભી છે તે ચોક્કસ નથી?', ctaText: 'EV તૈયારીના મૂલ્યાંકનથી શરૂઆત કરો અને તમારા સમુદાયને આગળ શું જોઈએ છે તે સમજો.' },
+      developers: { heading: 'પહેલા દિવસથી સમુદાયમાં EV તૈયારી બનાવો.', intro: 'નવા રહેણાંક વિકાસ માટે EV ઈન્ફ્રાસ્ટ્રક્ચરને માંગ દેખાય પછી ઉમેરવાને બદલે સમુદાયના આયોજનનો ભાગ બનાવી શકાય છે.', cards: [{ title: 'EV-રેડી આયોજન', text: 'સમુદાયના આયોજન દરમિયાન EV ચાર્જિંગ જરૂરિયાતોનો વિચાર કરો, જેથી EV અપનાવવું વધે ત્યારે ભાવિ રહેવાસીઓ માટે ચાર્જિંગનો સ્પષ્ટ માર્ગ હોય.' }, { title: 'વિદ્યુત અને ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર', text: 'EV અપનાવવાને સહારો આપે તેવા વિદ્યુત અને ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચરનું આયોજન કરો અને ભવિષ્યના વિસ્તરણને ધ્યાનમાં રાખો.' }, { title: 'રહેવાસીઓની ચાર્જિંગ તૈયારી', text: 'રહેવાસીઓ સમુદાયનો વાસ્તવમાં કેવી રીતે ઉપયોગ કરશે તે આધારે ચાર્જિંગ અભિગમ તૈયાર કરો, જેમાં પાર્કિંગ અને ચાર્જિંગની પહોંચ જેવા વ્યવહારુ વિચાર સામેલ છે.' }, { title: 'ભવિષ્ય માટે તૈયાર સમુદાયો', text: 'EV માલિકી વધે તેમ અનુકૂળ થઈ શકે તેવો પાયો બનાવો અને સમુદાયને પ્રારંભિક તૈયારીથી લાંબા ગાળાના ચાર્જિંગ ઈન્ફ્રાસ્ટ્રક્ચર તરફ લઈ જવામાં મદદ કરો.' }] },
+      approach: { eyebrow: 'અમારો અભિગમ', title: 'આજ માટે તૈયાર. આગળ માટે સક્ષમ.', description: 'ફ્લેશ પહેલા ચાર્જરથી આગળ જુએ છે. અમે સમુદાય, ઈન્ફ્રાસ્ટ્રક્ચર, રહેવાસીઓ અને EV અપનાવવાની અપેક્ષિત વૃદ્ધિને ધ્યાનમાં લઈએ છીએ, જેથી ચાર્જિંગ બિનજરૂરી જટિલતા વિના વિકસી શકે.' },
+      closing: { eyebrow: 'જ્યારે તમે તૈયાર હો', title: 'ચાલો એક EV-રેડી સમુદાય બનાવીએ.', description: 'તમારો સમુદાય પહેલેથી EV માલિકોનું ઘર હોય કે હજુ આયોજનમાં હોય, ફ્લેશ તમને આગળ શું કરવું તે સમજવામાં મદદ કરી શકે છે.', cta: 'ફ્લેશ સાથે વાત કરો' }, serviceLabel: 'સેવા', tabPanelLabel: 'આ સમુદાય પ્રકાર માટેની સેવાઓ', approachLabel: 'ફ્લેશ કેવી રીતે કામ કરે છે', ctaLabel: 'WhatsApp પર ફ્લેશનો સંપર્ક કરો',
     },
     about: {
       hero: {
@@ -785,9 +843,10 @@ const setActiveNavigation = () => {
     const href = link.getAttribute('href') || '';
     const isHome = (currentPage === '' || currentPage === 'index.html') && (href === 'index.html' || href === '#top');
     const isAbout = currentPage === 'about.html' && href === 'about.html';
+    const isServices = currentPage === 'services.html' && href === 'services.html';
     const isContact = currentPage === 'contact.html' && href === 'contact.html';
 
-    const isActive = isHome || isAbout || isContact;
+    const isActive = isHome || isAbout || isServices || isContact;
 
     link.classList.toggle('active', isActive);
     if (isActive) {
@@ -795,6 +854,44 @@ const setActiveNavigation = () => {
     } else {
       link.removeAttribute('aria-current');
     }
+  });
+};
+
+const initServicesTabs = () => {
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  if (!tabs.length) return;
+
+  const activateTab = (tab, moveFocus = false) => {
+    const tablist = tab.closest('[role="tablist"]');
+    const tabGroup = tablist ? [...tablist.querySelectorAll('[role="tab"]')] : tabs;
+
+    tabGroup.forEach((item) => {
+      const isSelected = item === tab;
+      const panel = document.getElementById(item.getAttribute('aria-controls'));
+      item.setAttribute('aria-selected', String(isSelected));
+      item.tabIndex = isSelected ? 0 : -1;
+      item.classList.toggle('is-active', isSelected);
+      if (panel) {
+        panel.hidden = !isSelected;
+        panel.classList.toggle('is-active', isSelected);
+      }
+    });
+
+    if (moveFocus) tab.focus();
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (event) => {
+      let nextIndex;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = tabs.length - 1;
+      if (nextIndex === undefined) return;
+      event.preventDefault();
+      activateTab(tabs[nextIndex], true);
+    });
   });
 };
 
@@ -915,6 +1012,7 @@ initMenu();
 initLanguage();
 setActiveNavigation();
 initFaq();
+initServicesTabs();
 
 const flashWhatsappUrl = 'https://wa.me/916262663664';
 
